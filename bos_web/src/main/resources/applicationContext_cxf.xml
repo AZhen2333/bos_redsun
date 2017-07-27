@@ -5,12 +5,12 @@
 				            http://www.springframework.org/schema/beans/spring-beans.xsd				           
 				            http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 	<bean id="waybillWs" class="com.redsun.bos.ws.impl.WaybillWs">
-		<property name="waybilldetailBiz" ref="cn.redsun.bos.biz.impl.WaybilldetailBiz"></property>
-		<property name="waybillBiz" ref="cn.redsun.bos.biz.impl.WaybillBiz"></property>
-	</bean>				            
-	
-	<!-- 发布服务 -->			            
+		<property name="waybillBiz" ref="waybillBiz"></property>
+		<property name="waybilldetailBiz" ref="waybilldetailBiz"></property>
+	</bean>
+	<!-- 发布服务 -->
 	<jaxws:server address="/waybill">
+		<!-- 服务实现 -->
 		<jaxws:serviceBean>
 			<ref bean="waybillWs"/>
 		</jaxws:serviceBean>

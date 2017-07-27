@@ -35,7 +35,7 @@
 	<!-- cxf -->
 	<servlet>
 		<servlet-name>cxf</servlet-name>
-		<servlet-name>org.apache.cxf.transport.servlet.CXFServlet</servlet-name>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>cxf</servlet-name>>
