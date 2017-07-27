@@ -4,6 +4,7 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import cn.redsun.bos.dao.IWaybillDao;
 import cn.redsun.bos.entity.Waybill;
+import cn.redsun.bos.entity.Waybilldetail;
 /**
  * 数据访问类
  * @author Administrator
@@ -35,6 +36,10 @@ public class WaybillDao extends BaseDao<Waybill> implements IWaybillDao {
 			}
 			if(null != waybill1.getState() && waybill1.getState().trim().length()>0){
 				dc.add(Restrictions.like("state", waybill1.getState(), MatchMode.ANYWHERE));
+			}
+			//根据运单号查询运单详情
+			if(null!=waybill1.getSn()){
+				dc.add(Restrictions.eq("sn",waybill1.getSn()));
 			}
 
 		}
