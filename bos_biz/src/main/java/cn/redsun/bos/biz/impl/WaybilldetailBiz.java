@@ -1,4 +1,6 @@
 package cn.redsun.bos.biz.impl;
+import java.util.List;
+
 import cn.redsun.bos.biz.IWaybilldetailBiz;
 import cn.redsun.bos.dao.IWaybilldetailDao;
 import cn.redsun.bos.entity.Waybilldetail;
@@ -15,5 +17,13 @@ public class WaybilldetailBiz extends BaseBiz<Waybilldetail> implements IWaybill
 		this.waybilldetailDao = waybilldetailDao;
 		super.setBaseDao(this.waybilldetailDao);
 	}
+
+	@Override
+	public List<Waybilldetail> waybilldetailList(Long sn) {
+		Waybilldetail waybilldetail = new Waybilldetail();
+		waybilldetail.setSn(sn);
+		return waybilldetailDao.getList(waybilldetail, null, null);
+	}
+
 	
 }
